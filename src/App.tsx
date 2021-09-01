@@ -9,10 +9,16 @@ import './styles/content.scss';
 
 
 export function App() {
+  const [selectedGenreId, setSelectedGenreId] = useState(1);
+
+  function handleClickButton(id: number) {
+    setSelectedGenreId(id);
+  }
+
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
-      <SideBar />
-      <Content />
+      <SideBar genreId={selectedGenreId} handleClick={handleClickButton}/>
+      <Content genreId={selectedGenreId}/>
     </div>
   )
 }
